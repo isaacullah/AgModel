@@ -1,5 +1,6 @@
 # AgModel
- An _Agent-Based Model_ of the forager-farmer transition
+ 
+## An _Agent-Based Model_ of the forager-farmer transition ##
 
 [![DOI](https://zenodo.org/badge/12885/isaacullah/AgModel.svg)](http://dx.doi.org/10.5281/zenodo.17551)
 
