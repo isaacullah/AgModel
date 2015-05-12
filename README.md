@@ -1,7 +1,7 @@
 # AgModel
  An _Agent-Based Model_ of the forager-farmer transition
 
-[![DOI](https://zenodo.org/badge/12885/isaacullah/AgModel.svg)](http://dx.doi.org/10.5281/zenodo.17550)
+[![DOI](https://zenodo.org/badge/12885/isaacullah/AgModel.svg)](http://dx.doi.org/10.5281/zenodo.17551)
 
  This is an agent-based model of a potential scenario for the forager-farmer transistion. It is parameterized  for a millet/deer ecosystem (east Asia), but could apply to any hunting/seed gathering system if parameterized accordingly. Rather than use an existing ABM or other modeling framework, I have written it in pure Python, both as a fun excercise for me, and with the hope of better integration to scientific Python (e.g., pandas, matplotlib) and the open-science movement.
 
@@ -23,7 +23,7 @@
 
 * This software is released under the [GPL licence](http://www.gnu.org/copyleft/gpl.html).
 * Current release number is v0.3, which is a fully functional beta.
-* Please cite as: __Isaac I. Ullah, 2015. AgModel, version 0.3. http://dx.doi.org/10.5281/zenodo.17550__ if you publish anything related to this software.
+* Please cite as: __Isaac I. Ullah, 2015. AgModel, version 0.3. http://dx.doi.org/10.5281/zenodo.17551__ if you publish anything related to this software.
 * Citations to scholarly work that employs this software will be listed here in future.
 
 ## Model Variables ##
