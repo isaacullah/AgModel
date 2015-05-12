@@ -17,11 +17,11 @@
 
 The model is derived/inspired by ideas and data from the following scholarly works:
 
-> Bettinger, R.L., Barton, L., Morgan, C.T., 2010. The origins of food production in North China: a different kind of agricultural revolution, Evolutionary Anthropology 19, 9-21.
+1) Bettinger, R.L., Barton, L., Morgan, C.T., 2010. The origins of food production in North China: a different kind of agricultural revolution, Evolutionary Anthropology 19, 9-21.
 
-> Winterhalder, B., Baillargeon, W., Cappelletto, F., Daniel, J., Prescott, I.R., 1988. The population ecology of hunter-gatherers and their prey, Journal of Anthropological Archaeology 7, 289-328.
+2) Winterhalder, B., Baillargeon, W., Cappelletto, F., Daniel, J., Prescott, I.R., 1988. The population ecology of hunter-gatherers and their prey, Journal of Anthropological Archaeology 7, 289-328.
 
-> Belovsky, G.E., 1988. An optimal foraging-based model of hunter-gatherer population dynamics, Journal of Anthropological Archaeology 7, 329-372.
+3) Belovsky, G.E., 1988. An optimal foraging-based model of hunter-gatherer population dynamics, Journal of Anthropological Archaeology 7, 329-372.
 
 
 ## Installation and Running ##
