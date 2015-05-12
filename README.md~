@@ -39,7 +39,7 @@ The model is derived/inspired by ideas and data from the following scholarly wor
 
 ## Model Variables ##
 
- Here is a list of the input variables in the model, their default values, and a brief description of the variable.
+ Here is a table of the input variables in the model, their default values, and a brief description of the variable.
 
 <center>**Human Variables**</center>
 
