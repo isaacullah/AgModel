@@ -11,38 +11,38 @@ This software is being released under the [GPL licence](http://www.gnu.org/copyl
 
 Here is a list of the input variables in the model, their default values, and a brief description.
 
-people = 50.0         	## The initial number of people in the band
-maxpeople = 500    		## The maximum human population (just to keep this in the realm of possibility, and to help set the y axis on the plot)
-hbirth = 0.04         	## The annual human per capita birth rate
-hdeath = 0.03        	## The annual human per capita death rate
-starvthresh = 0.8    	## The starvation threshold (percentage of the total kcal below which people are starving, and effective reproduction goes to 0)
-hkcal = 547500.0 		## The number of kcals per year rquired per person
-fhours = 4380        	## The number of foraging hours available per person
+people 		| 50.0         	| The initial number of people in the band
+maxpeople 	| 500    		| The maximum human population (just to keep this in the realm of possibility, and to help set the y axis on the plot)
+hbirth 		| 0.04         	| The annual human per capita birth rate
+hdeath 		| 0.03        	| The annual human per capita death rate
+starvthresh | 0.8    		| The starvation threshold (percentage of the total kcal below which people are starving, and effective reproduction goes to 0)
+hkcal 		| 547500.0 		| The number of kcals per year rquired per person
+fhours 		| 4380        	| The number of foraging hours available per person
 
-*Deer variables*
-deer = 4000.0         	## The inital number of deer in the hunting region
-maxdeer = 6000.0     	## The maximum number of deer that the region can sustain (carrying capacity) without human predation
-dmigrants = 10        	## The number of new deer that migrate into the territory each year (keeps deer pop from being totally wiped out)
-dbirth = 0.065        	## The annual per capit birth rate for deer
-ddeath = 0.02        	## The annual per capita natural death rate for deer
-dret = 158000.0        	## The return rate (number of kcals) per deer killed
-ddsrch = 72.0        	## The density dependant search costs for deer (hours time expended per recovery of one deer at the density "ddens")
-ddens = 1000        	## Density of deer for which search cost "dsrch" is known
-dpatch = 1.0        	## Number of individual deer encountered per discovery
-dhndl = 16.0        	## The handling costs for deer (hours handling time expended per deer once encountered)
+### *Deer variables*
+deer 		| 4000.0        | The inital number of deer in the hunting region
+maxdeer 	| 6000.0     	| The maximum number of deer that the region can sustain (carrying capacity) without human predation
+dmigrants 	| 10        	| The number of new deer that migrate into the territory each year (keeps deer pop from being totally wiped out)
+dbirth 		| 0.065        	| The annual per capit birth rate for deer
+ddeath 		| 0.02        	| The annual per capita natural death rate for deer
+dret 		| 158000.0      | The return rate (number of kcals) per deer killed
+ddsrch 		| 72.0        	| The density dependant search costs for deer (hours time expended per recovery of one deer at the density "ddens")
+ddens 		| 1000        	| Density of deer for which search cost "dsrch" is known
+dpatch 		| 1.0        	| Number of individual deer encountered per discovery
+dhndl 		| 16.0        	| The handling costs for deer (hours handling time expended per deer once encountered)
 
-*Millet Variables*
-millet = 500        	## The number of millet patches in the gathering region (assume a patch is ~1ha)
-mretw = 0.0507        	## The return rate (number of kcals) per wild-type millet seed
-mretd = 0.1014        	## The return rate (number of kcals) per domestic-type millet seed
-mprop = 0.98        	## The starting proportion of wild-type to domestic-type millet (1.0 = all wild, 0.0 = all domestic)
-mselect = 0.03        	## The coefficient of slection (e.g., the rate of change from wild-type to domestic type)
-mdiffus = 0.02        	## The coefficient of diffusion for millet (the rate at which selected domestic traits dissappear due to crossbreeding)
-msrch = 1.0        		## The search costs for millet (hours expended to find one patch of millet)
-mpatch = 880000.0    	## Number of millet plants per patch at the start of the simulation (individuals encountered per discovery)
-maxpatch = 1760000.0 	## Maximum number of millet plants that can be grown per patch (a bit of a teleology, but we need a stopping point for now)
-cultiv = 5000 ## Number of additional millet plants to added to a patch each year due to proto cultivation of the patch. The patch reduces by the same number if not exploited.
-mhndl = 0.0001        	## Enter the handling costs for millet (hours handling time expended per seed once encountered)
+### *Millet Variables*
+millet 		| 500        	| The number of millet patches in the gathering region (assume a patch is ~1ha)
+mretw 		| 0.0507        | The return rate (number of kcals) per wild-type millet seed
+mretd 		| 0.1014        | The return rate (number of kcals) per domestic-type millet seed
+mprop 		| 0.98        	| The starting proportion of wild-type to domestic-type millet (1.0 = all wild, 0.0 = all domestic)
+mselect 	| 0.03        	| The coefficient of slection (e.g., the rate of change from wild-type to domestic type)
+mdiffus 	| 0.02        	| The coefficient of diffusion for millet (the rate at which selected domestic traits dissappear due to crossbreeding)
+msrch 		| 1.0        	| The search costs for millet (hours expended to find one patch of millet)
+mpatch 		| 880000.0    	| Number of millet plants per patch at the start of the simulation (individuals encountered per discovery)
+maxpatch 	| 1760000.0 	| Maximum number of millet plants that can be grown per patch (a bit of a teleology, but we need a stopping point for now)
+cultiv 		| 5000 			| Number of additional millet plants to added to a patch each year due to proto cultivation of the patch. The patch reduces by the same number if not exploited.
+mhndl 		| 0.0001        | Enter the handling costs for millet (hours handling time expended per seed once encountered)
 
-*simulation controls*
-years = 500        		## The number of years for which to run the simulation
+### *simulation controls*
+years 		| 500        	| The number of years for which to run the simulation
