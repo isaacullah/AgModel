@@ -23,7 +23,7 @@
 
 * This software is released under the [GPL licence](http://www.gnu.org/copyleft/gpl.html).
 * Current release number is v0.3, which is a fully functional beta.
-* Please cite as: _Isaac I. Ullah, 2015. AgModel. http://dx.doi.org/10.5281/zenodo.17550_ if you publish anything related to this software.
+* Please cite as: __Isaac I. Ullah, 2015. AgModel. http://dx.doi.org/10.5281/zenodo.17550__ if you publish anything related to this software.
 * Citations to scholarly work that employs this software will be listed here in future.
 
 ## Model Variables ##
