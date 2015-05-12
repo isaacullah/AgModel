@@ -52,7 +52,7 @@ msrch 		| 1.0        	| The search costs for millet (hours expended to find one 
 mpatch 		| 880000.0    	| Number of millet plants per patch at the start of the simulation (individuals encountered per discovery)
 maxpatch 	| 1760000.0 	| Maximum number of millet plants that can be grown per patch (a bit of a teleology, but we need a stopping point for now)
 cultiv 		| 5000 			| Number of additional millet plants to added to a patch each year due to proto cultivation of the patch. The patch reduces by the same number if not exploited.
-mhndl 		| 0.0001        | Enter the handling costs for millet (hours handling time expended per seed once encountered)
+mhndl 		| 0.0001        | The handling costs for millet (hours handling time expended per seed once encountered)
 
 <center>**Simulation Controls**</center>
 
