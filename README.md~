@@ -9,7 +9,7 @@ This software is being released under the [GPL licence](http://www.gnu.org/copyl
 
 ## Model Variables
 
-Here is a list of the input variables in the model, their default values, and a brief description.
+Here is a list of the input variables in the model, their default values, and a brief description of the variable.
 
 ->**Human Variables**<-
 

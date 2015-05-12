@@ -11,7 +11,7 @@ This software is being released under the [GPL licence](http://www.gnu.org/copyl
 
 Here is a list of the input variables in the model, their default values, and a brief description of the variable.
 
-->**Human Variables**<-
+<center>**Human Variables**</center>
 
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ starvthresh | 0.8    		| The starvation threshold (percentage of the total kcal 
 hkcal 		| 547500.0 		| The number of kcals per year rquired per person
 fhours 		| 4380        	| The number of foraging hours available per person
 
-->**Deer variables**<-
+<center>**Deer variables**</center>
 
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ ddens 		| 1000        	| Density of deer for which search cost "dsrch" is known
 dpatch 		| 1.0        	| Number of individual deer encountered per discovery
 dhndl 		| 16.0        	| The handling costs for deer (hours handling time expended per deer once encountered)
 
-->**Millet Variables**<-
+<center>**Millet Variables**</center>
 
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ maxpatch 	| 1760000.0 	| Maximum number of millet plants that can be grown per p
 cultiv 		| 5000 			| Number of additional millet plants to added to a patch each year due to proto cultivation of the patch. The patch reduces by the same number if not exploited.
 mhndl 		| 0.0001        | Enter the handling costs for millet (hours handling time expended per seed once encountered)
 
-->**Simulation Controls**<-
+<center>**Simulation Controls**</center>
 
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
