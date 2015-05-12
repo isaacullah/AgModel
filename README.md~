@@ -34,7 +34,7 @@ The model is derived/inspired by ideas and data from the following scholarly wor
 
 * This software is released under the [GPL licence](http://www.gnu.org/copyleft/gpl.html).
 * Current release number is v0.3, which is a fully functional beta.
-* Please cite as: __Isaac I. Ullah, 2015. AgModel, version 0.3. http://dx.doi.org/10.5281/zenodo.17551__ if you publish anything related to this software.
+* Please cite as: __"Isaac I. Ullah, 2015. AgModel, version 0.3. http://dx.doi.org/10.5281/zenodo.17551"__ if you publish anything related to this software.
 * Citations to scholarly work that employs this software will be listed here in future.
 
 ## Model Variables ##
