@@ -45,4 +45,4 @@ cultiv = 5000 ## Number of additional millet plants to added to a patch each yea
 mhndl = 0.0001        	## Enter the handling costs for millet (hours handling time expended per seed once encountered)
 
 ### SIMULATION CONTROLS
-years = 500        ## Enter the number of years for which to run the simulation
+years = 500        		## The number of years for which to run the simulation
