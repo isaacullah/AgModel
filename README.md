@@ -1,6 +1,8 @@
 # AgModel
  An _Agent-Based Model_ of the forager-farmer transition
 
+[![DOI](https://zenodo.org/badge/12885/isaacullah/AgModel.svg)](http://dx.doi.org/10.5281/zenodo.17550)
+
  This is an agent-based model of a potential scenario for the forager-farmer transistion. It is parameterized  for a millet/deer ecosystem (east Asia), but could apply to any hunting/seed gathering system if parameterized accordingly. Rather than use an existing ABM or other modeling framework, I have written it in pure Python, both as a fun excercise for me, and with the hope of better integration to scientific Python (e.g., pandas, matplotlib) and the open-science movement.
 
  The model consists of a single software agent that, conceptually, can be thought of as a single hunter-gather community (i.e., a co-residential group that shares in subsistence activities and decision making). The model assumes a logistic, central-place foraging strategy in a fixed territory for a two-resource economy (see below for alternative mobility strategies). The territory has a fixed number of millet patches, and a starting number of deer. Note that while the model is not spatially explicit, it does assume some spatiality of resources (covered by search times).
@@ -17,8 +19,7 @@
 
  Once these are all installed, you just place the script in a folder of your choosing, open a terminal window in that same directory (you can often do this from the "right click" popup menu), and type `python Agmodel-0.3.py`. The first window that will pop up will ask for a configuration file. I include a sample config file in this github repo that will paramterize the model for some interesting dynamics, but you need not load one. There are default values that will populate the fields. If you want to just load up the default values, hit cancel on this window. It will then ask you to save a new config file, and you should do that if you're going to be changing any values and want to save them for another time. Then, there will be several windows showing you the variables, and allowing you to change them. Anything you change will be saved to that config file you just made (and so you can load them up again that way later). Once you've adjusted the parameters, the plotting canvas window will pop up, and it will ask you to if you want to start the simulation. Hit "ok", and the model begins to run. There is some informative text that gets written to the terminal during the simulation, and the plots will be updated on the fly, so you will be able to see what's going on in the simulation. Once it's finished, you get the option of saving some output stats files, as well as the plots themselves. You can save any or all of these, but make sure to select the ones you want to make on the first screen. Then, you can exit the simulation, and do it all over again!
 
- This software is being released under the [GPL licence](http://www.gnu.org/copyleft/gpl.html). Please credit Isaac I. Ullah and the following DOI ([![DOI](https://zenodo.org/badge/12885/isaacullah/AgModel.svg)](http://dx.doi.org/10.5281/zenodo.17550)
-) if you publish anything related to this software. Current release number is v0.3, which is a fully functional beta. Citations to scholarly work that employs this software will be listed here in future.
+ This software is being released under the [GPL licence](http://www.gnu.org/copyleft/gpl.html). Please credit Isaac I. Ullah and the DOI listed at the top of the page if you publish anything related to this software. Current release number is v0.3, which is a fully functional beta. Citations to scholarly work that employs this software will be listed here in future.
 
 ## Model Variables
 
