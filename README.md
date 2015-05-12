@@ -14,14 +14,19 @@
  If agents consume millet, then their selection preferences will drive evolutionary processess within the millet population (selection rate is set at the start of the simulation). Two parameters are selected for: morphology (grain size/easy of harvesting), and patch density (reseeding density). These rates will increase over time in patches that are under consistent use (due to selection), but will begin to decrease in patches that are not used (according to a diffusion rate, and the proportion of wild to domesticated millet in all patches). Morphologically wild millet produces fewer kcal per seed, and has longer handling times. Thus, as millet is more frequently used, it's desirable traights are enhanced (via selection), and it becomes more profitable. Vice versa as millet is used less frequently. Currently, millet patches are acessed in the same order every year, so humans are assumed to be "choosing" the "best" patches first (planned model enhancement will allow this to change). The "size" of individual millet patches is set by the wild/domesticated millet patch density (default values assume patch size = 1 ha).
 
 
-## Installation and Running
+## Installation and Running ##
  You will need to install [Python 2.7](www.python.org/download/releases/2.7/) to run it. You will need some additional python modules too, which can be installed various ways, depending on your system and prefence. You'll need [NumPy](www.numpy.org), [Pandas](pandas.pydata.org), [Matplotlib](matplotlib.org), and [EasyGUI](easygui.sourceforge.net). These are all available from the [PIP installer](github.com/pypa/pip).
 
  Once these are all installed, you just place the script in a folder of your choosing, open a terminal window in that same directory (you can often do this from the "right click" popup menu), and type `python Agmodel-0.3.py`. The first window that will pop up will ask for a configuration file. I include a sample config file in this github repo that will paramterize the model for some interesting dynamics, but you need not load one. There are default values that will populate the fields. If you want to just load up the default values, hit cancel on this window. It will then ask you to save a new config file, and you should do that if you're going to be changing any values and want to save them for another time. Then, there will be several windows showing you the variables, and allowing you to change them. Anything you change will be saved to that config file you just made (and so you can load them up again that way later). Once you've adjusted the parameters, the plotting canvas window will pop up, and it will ask you to if you want to start the simulation. Hit "ok", and the model begins to run. There is some informative text that gets written to the terminal during the simulation, and the plots will be updated on the fly, so you will be able to see what's going on in the simulation. Once it's finished, you get the option of saving some output stats files, as well as the plots themselves. You can save any or all of these, but make sure to select the ones you want to make on the first screen. Then, you can exit the simulation, and do it all over again!
 
- This software is being released under the [GPL licence](http://www.gnu.org/copyleft/gpl.html). Please credit Isaac I. Ullah and the DOI listed at the top of the page if you publish anything related to this software. Current release number is v0.3, which is a fully functional beta. Citations to scholarly work that employs this software will be listed here in future.
+### Notes ###
 
-## Model Variables
+* This software is released under the [GPL licence](http://www.gnu.org/copyleft/gpl.html).
+* Please credit Isaac I. Ullah and the DOI listed at the top of the page if you publish anything related to this software.
+* Current release number is v0.3, which is a fully functional beta.
+* Citations to scholarly work that employs this software will be listed here in future.
+
+## Model Variables ##
 
  Here is a list of the input variables in the model, their default values, and a brief description of the variable.
 
