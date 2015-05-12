@@ -12,7 +12,8 @@ This software is being released under the [GPL licence](http://www.gnu.org/copyl
 Here is a list of the input variables in the model, their default values, and a brief description.
 
 ### *Human Variables*
---- | --- | ---
+Variable	| Default Value | Description
+----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 people 		| 50.0         	| The initial number of people in the band
 maxpeople 	| 500    		| The maximum human population (just to keep this in the realm of possibility, and to help set the y axis on the plot)
 hbirth 		| 0.04         	| The annual human per capita birth rate
@@ -22,7 +23,8 @@ hkcal 		| 547500.0 		| The number of kcals per year rquired per person
 fhours 		| 4380        	| The number of foraging hours available per person
 
 ### *Deer variables*
---- | --- | ---
+Variable	| Default Value | Description
+----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 deer 		| 4000.0        | The inital number of deer in the hunting region
 maxdeer 	| 6000.0     	| The maximum number of deer that the region can sustain (carrying capacity) without human predation
 dmigrants 	| 10        	| The number of new deer that migrate into the territory each year (keeps deer pop from being totally wiped out)
@@ -35,7 +37,8 @@ dpatch 		| 1.0        	| Number of individual deer encountered per discovery
 dhndl 		| 16.0        	| The handling costs for deer (hours handling time expended per deer once encountered)
 
 ### *Millet Variables*
---- | --- | ---
+Variable	| Default Value | Description
+----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 millet 		| 500        	| The number of millet patches in the gathering region (assume a patch is ~1ha)
 mretw 		| 0.0507        | The return rate (number of kcals) per wild-type millet seed
 mretd 		| 0.1014        | The return rate (number of kcals) per domestic-type millet seed
@@ -49,5 +52,6 @@ cultiv 		| 5000 			| Number of additional millet plants to added to a patch each
 mhndl 		| 0.0001        | Enter the handling costs for millet (hours handling time expended per seed once encountered)
 
 ### *simulation controls*
---- | --- | ---
+Variable	| Default Value | Description
+----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 years 		| 500        	| The number of years for which to run the simulation

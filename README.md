@@ -7,11 +7,11 @@ This is an agent-based model of a potential scenario for the forager-farmer tran
 
 This software is being released under the [GPL licence](http://www.gnu.org/copyleft/gpl.html). Please credit Isaac I. Ullah if you publish anything related to this software. Citations to scholarly work that employs this software will be listed here in future.
 
-## Variables
+## Model Variables
 
 Here is a list of the input variables in the model, their default values, and a brief description.
 
-### *Human Variables*
+->**Human Variables**<-
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 people 		| 50.0         	| The initial number of people in the band
@@ -22,7 +22,7 @@ starvthresh | 0.8    		| The starvation threshold (percentage of the total kcal 
 hkcal 		| 547500.0 		| The number of kcals per year rquired per person
 fhours 		| 4380        	| The number of foraging hours available per person
 
-### *Deer variables*
+->**Deer variables**<-
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 deer 		| 4000.0        | The inital number of deer in the hunting region
@@ -36,7 +36,7 @@ ddens 		| 1000        	| Density of deer for which search cost "dsrch" is known
 dpatch 		| 1.0        	| Number of individual deer encountered per discovery
 dhndl 		| 16.0        	| The handling costs for deer (hours handling time expended per deer once encountered)
 
-### *Millet Variables*
+->**Millet Variables**<-
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 millet 		| 500        	| The number of millet patches in the gathering region (assume a patch is ~1ha)
@@ -51,7 +51,7 @@ maxpatch 	| 1760000.0 	| Maximum number of millet plants that can be grown per p
 cultiv 		| 5000 			| Number of additional millet plants to added to a patch each year due to proto cultivation of the patch. The patch reduces by the same number if not exploited.
 mhndl 		| 0.0001        | Enter the handling costs for millet (hours handling time expended per seed once encountered)
 
-### *simulation controls*
+->**Simulation Controls**<-
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 years 		| 500        	| The number of years for which to run the simulation
