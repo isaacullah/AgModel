@@ -12,6 +12,7 @@ This software is being released under the [GPL licence](http://www.gnu.org/copyl
 Here is a list of the input variables in the model, their default values, and a brief description.
 
 ->**Human Variables**<-
+
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 people 		| 50.0         	| The initial number of people in the band
@@ -23,6 +24,7 @@ hkcal 		| 547500.0 		| The number of kcals per year rquired per person
 fhours 		| 4380        	| The number of foraging hours available per person
 
 ->**Deer variables**<-
+
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 deer 		| 4000.0        | The inital number of deer in the hunting region
@@ -37,6 +39,7 @@ dpatch 		| 1.0        	| Number of individual deer encountered per discovery
 dhndl 		| 16.0        	| The handling costs for deer (hours handling time expended per deer once encountered)
 
 ->**Millet Variables**<-
+
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 millet 		| 500        	| The number of millet patches in the gathering region (assume a patch is ~1ha)
@@ -52,6 +55,7 @@ cultiv 		| 5000 			| Number of additional millet plants to added to a patch each
 mhndl 		| 0.0001        | Enter the handling costs for millet (hours handling time expended per seed once encountered)
 
 ->**Simulation Controls**<-
+
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 years 		| 500        	| The number of years for which to run the simulation
