@@ -13,6 +13,16 @@
 
  If agents consume millet, then their selection preferences will drive evolutionary processess within the millet population (selection rate is set at the start of the simulation). Two parameters are selected for: morphology (grain size/easy of harvesting), and patch density (reseeding density). These rates will increase over time in patches that are under consistent use (due to selection), but will begin to decrease in patches that are not used (according to a diffusion rate, and the proportion of wild to domesticated millet in all patches). Morphologically wild millet produces fewer kcal per seed, and has longer handling times. Thus, as millet is more frequently used, it's desirable traights are enhanced (via selection), and it becomes more profitable. Vice versa as millet is used less frequently. Currently, millet patches are acessed in the same order every year, so humans are assumed to be "choosing" the "best" patches first (planned model enhancement will allow this to change). The "size" of individual millet patches is set by the wild/domesticated millet patch density (default values assume patch size = 1 ha).
 
+### References ###
+
+The model is derived/inspired by ideas and data from the following scholarly works:
+
+* Bettinger, R.L., Barton, L., Morgan, C.T., 2010. The origins of food production in North China: a different kind of agricultural revolution, Evolutionary Anthropology 19, 9-21.
+
+* Winterhalder, B., Baillargeon, W., Cappelletto, F., Daniel, J., Prescott, I.R., 1988. The population ecology of hunter-gatherers and their prey, Journal of Anthropological Archaeology 7, 289-328.
+
+* Belovsky, G.E., 1988. An optimal foraging-based model of hunter-gatherer population dynamics, Journal of Anthropological Archaeology 7, 329-372.
+
 
 ## Installation and Running ##
  You will need to install [Python 2.7](www.python.org/download/releases/2.7/) to run it. You will need some additional python modules too, which can be installed various ways, depending on your system and prefence. You'll need [NumPy](www.numpy.org), [Pandas](pandas.pydata.org), [Matplotlib](matplotlib.org), and [EasyGUI](easygui.sourceforge.net). These are all available from the [PIP installer](github.com/pypa/pip).
