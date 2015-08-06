@@ -89,7 +89,7 @@ Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 years 		| 500  			| The number of years for which to run the simulation
 
-## Notes on the default values used
+### Notes on the default values used
 1. Domestic millet produces 1014 kcal/kg, yielding 1000 kg/ha from seeds dispersed at 10 kg/ha, with 176,000 seeds per kilogram (so 1.76 million plants per ha), and a return rate of about 500 kcal/hr once encountered. Assume patch size is one hectare. Data on domestic millet comes from the UN-FAO: [http://www.fao.org/ag/AGP/AGPC/doc/gbase/data/pf000280.htm](http://www.fao.org/ag/AGP/AGPC/doc/gbase/data/pf000280.htm).
 3. Wild millet: Right now, just assuming everything is half as much as domestic millet.
 4. Deer produces 1580 kcal/kg, with 100 kg yield per animal, and a return rate of abotu 10000 kcal/hr once encountered. Assuming two fawns per year and three days average search time when there are 1000 animals in the vicinity. Some of these are estimates from Bettinger 1991, "Hunter-Gatherers," and some come from [USDA nutrition info for vennison](http://ndb.nal.usda.gov/ndb/foods/show/5421?fg=&man=&lfacet=&count=&max=25&sort=&qlookup=game+meat&offset=25&format=Full&new=&measureby=).
