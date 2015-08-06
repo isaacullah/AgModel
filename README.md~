@@ -26,7 +26,6 @@ The model is derived/inspired by ideas and data from the following scholarly wor
 
 3. Belovsky, G.E., 1988. An optimal foraging-based model of hunter-gatherer population dynamics, Journal of Anthropological Archaeology 7, 329-372.
 
-
 ## Installation and Running ##
  You will need to install [Python 2.7](www.python.org/download/releases/2.7/) to run it. You will need some additional python modules too, which can be installed various ways, depending on your system and preference. The modules you'll need are: [NumPy](www.numpy.org), [Pandas](pandas.pydata.org), [Matplotlib](matplotlib.org), and [EasyGUI](easygui.sourceforge.net). These are all available from the [PIP Python installer](github.com/pypa/pip), which is my preferred method of installation.
 
@@ -89,3 +88,9 @@ mhndl 		| 0.0001  		| The handling costs for millet (hours handling time expende
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
 years 		| 500  			| The number of years for which to run the simulation
+
+## Notes on the default values used
+1. Domestic millet produces 1014 kcal/kg, yielding 1000 kg/ha from seeds dispersed at 10 kg/ha, with 176,000 seeds per kilogram (so 1.76 million plants per ha), and a return rate of about 500 kcal/hr once encountered. Assume patch size is one hectare. Data on domestic millet comes from the UN-FAO: [http://www.fao.org/ag/AGP/AGPC/doc/gbase/data/pf000280.htm](http://www.fao.org/ag/AGP/AGPC/doc/gbase/data/pf000280.htm).
+3. Wild millet: Right now, just assuming everything is half as much as domestic millet.
+4. Deer produces 1580 kcal/kg, with 100 kg yield per animal, and a return rate of abotu 10000 kcal/hr once encountered. Assuming two fawns per year and three days average search time when there are 1000 animals in the vicinity. Some of these are estimates from Bettinger 1991, "Hunter-Gatherers," and some come from [USDA nutrition info for vennison](http://ndb.nal.usda.gov/ndb/foods/show/5421?fg=&man=&lfacet=&count=&max=25&sort=&qlookup=game+meat&offset=25&format=Full&new=&measureby=).
+5. Note that this model assumes storage of millet, but not of deer.
