@@ -51,6 +51,7 @@ hdeath 		| 0.03  		| The annual human per capita death rate
 starvthresh | 0.8 			| The starvation threshold (percentage of the total kcal below which people are starving, and effective reproduction goes to 0)
 hkcal 		| 547500.0 		| The number of kcals per year rquired per person
 fhours 		| 4380  		| The number of foraging hours available per person
+hgratio     | 0.5           | The ratio of hunters to gatherers in the population (for allocation of time budgets)
 
 <center>**Deer variables**</center>
 
