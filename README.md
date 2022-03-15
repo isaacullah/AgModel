@@ -36,7 +36,11 @@ The model is derived/inspired by ideas and data from the following scholarly wor
 * This software is released under the [GPL license](http://www.gnu.org/copyleft/gpl.html).
 * Current release number is v0.3, which is a fully functional beta.
 * Please cite as: __"Isaac I. Ullah, 2015. AgModel, version 0.3. http://dx.doi.org/10.5281/zenodo.17551"__ if you publish anything related to this software.
-* Citations to scholarly works that employ this software will be listed here in future.
+
+
+### Publications and Presentations ###
+
+Barton, L., and Ullah, I. (2016) “Computer simulation and the origins of agriculture in East Asia,” Paper presented at the 7th Worldwide Conference of the Society for East Asian Archaeology, Boston, MA, June, 2016.
 
 ## Model Variables ##
 
