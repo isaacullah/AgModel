@@ -8,13 +8,13 @@
 
  The model consists of a single software agent that, conceptually, can be thought of as a single hunter-gather community (i.e., a co-residential group that shares in subsistence activities and decision making). The model assumes a logistic, central-place foraging strategy in a fixed territory for a two-resource economy (see below for alternative mobility strategies). The territory has a fixed number of millet patches, and a starting number of deer. Note that while the model is not spatially explicit, it does assume some spatiality of resources (covered by search times).
 
- The simulation takes place at an annual temporal resolution (births/deaths/resource rejuvenation), although there are many foraging decisions that will be made within each year (i.e., foraging decisions are "event" based). Each new year, the foraging agent must make a series of optimal foraging decisions based on its knowledge of the availability the two resources in the model: millet and deer (other resources are ignored, and the kcal intake from other resources should not be counted towards the total number of kcals that the foraging agent uses to calculate its decisions). The agent proceeds to balance the net benefits of the chance of finding, processing, and consuming a deer, versus that of finding a millet patch, and processing and consuming that millet. These decisions continue until the annual kcal target is reached (balanced on the current human population). If the agent consumes all available resources in a given year, it may "starve". Starvation will affect birth and death rates, as will foraging success. The initial birth and death rates of humans will thus change over time, and population will increase or decrease according to a probabilistic function (perturbed by some stochasticity) and the agent's foraging success or failure. The agent is also contrained by labor caps, set by the modeler at model initialization. If the agent runs out of it's yearly budget of person-hours for hunting or foraging, then the agent can no longer do those activities that year, and it may starve.
+ The simulation takes place at an annual temporal resolution (births/deaths/resource rejuvenation), although there are many foraging decisions that will be made within each year (i.e., foraging decisions are "event" based). Each new year, the foraging agent must make a series of optimal foraging decisions based on its knowledge of the availability the two resources in the model: millet and deer (other resources are ignored, and the kcal intake from other resources should not be counted towards the total number of kcals that the foraging agent uses to calculate its decisions). The agent proceeds to balance the net benefits of the chance of finding, processing, and consuming a deer, versus that of finding a millet patch, and processing and consuming that millet. These decisions continue until the annual kcal target is reached (balanced on the current human population). If the agent consumes all available resources in a given year, it may "starve". Starvation will affect birth and death rates, as will foraging success. The initial birth and death rates of humans will thus change over time, and population will increase or decrease according to a probabilistic function (perturbed by some stochasticity) and the agent's foraging success or failure. The agent is also constrained by labor caps, set by the modeler at model initialization. If the agent runs out of it's yearly budget of person-hours for hunting or foraging, then the agent can no longer do those activities that year, and it may starve.
 
  Deer populations recover/grow according to a similar birth/death rate ratio, with the addition of extra deaths caused by human predation. A small amount of deer may "migrate" into the territory each year. This prevents deer populations from complete decimation, but also may be used to model increased distances of logistic mobility (or, perhaps, even residential mobility within a larger territory). Search times for deer are entered for a known quantity of deer (default = 1000) so that the actual search time is the entered search time multiplied by the ratio of the current population to this "benchmark" population. Note also, that it is possible to increase the number of individual deer per encounter (which would reduce the search time per animal, accordingly).
 
- If the agent consumes millet, then human selection preferences will drive evolutionary processes within the millet population (selection rate is set at the start of the simulation). Two parameters are selected for: morphology (which affects bothe grain size _and_ ease of harvesting), and patch density (reseeding density). These rates will increase over time in patches that are under consistent use (due to selection), but will begin to decrease in patches that are not used (according to a diffusion rate, and the proportion of wild to domesticated millet in all patches). Morphologically wild millet produces fewer kcal per seed, has longer handling times, and there are fewer seeds per patch. Thus, as millet is more frequently used, it's desirable traits are enhanced (via selection), and it becomes more profitable. The opposite occurs as millet is used less frequently. Currently, millet patches are accessed in the same order every year, so humans are assumed to be "choosing" the "best" patches first (planned model enhancement will allow this to change). The "size" of individual millet patches is set by the maximum wild/domesticated millet patch density (default values assume patch size = 1 ha).
+ If the agent consumes millet, then human selection preferences will drive evolutionary processes within the millet population (selection rate is set at the start of the simulation). Two parameters are selected for: morphology (which affects both grain size _and_ ease of harvesting), and patch density (reseeding density). These rates will increase over time in patches that are under consistent use (due to selection), but will begin to decrease in patches that are not used (according to a diffusion rate, and the proportion of wild to domesticated millet in all patches). Morphologically wild millet produces fewer kcal per seed, has longer handling times, and there are fewer seeds per patch. Thus, as millet is more frequently used, it's desirable traits are enhanced (via selection), and it becomes more profitable. The opposite occurs as millet is used less frequently. Currently, millet patches are accessed in the same order every year, so humans are assumed to be "choosing" the "best" patches first (planned model enhancement will allow this to change). The "size" of individual millet patches is set by the maximum wild/domesticated millet patch density (default values assume patch size = 1 ha).
 
- A note about the selection rate parameter: As described above, the proportions of wild to domestic millet are adjusted in _just_ the millet patches that were exploited in the current year. The density of individuals in _just_ those patches is also adjusted. These are the physical effects of the "artifical selection" induced by humans while exploiting those patches. At the same time, however, there is a "diffusion" of wild-type characteristics back to patches that are not being used. In the model, used patches are not exposed to this opposite, diffusive, pressure, but only are exposed to the selective pressures of human utilization. This is a simplification, because diffusion is certainly also happening even if patches are currently being used, but the effect of this diffusion is swamped out by the larger pressure exerted by artificial selection. Although the model could have been programmed to balance these pressures in utilized patches, it is programmatically simpler, to have diffusion operate only if a patch was not used. This simplification is compensated for by "tuning" the rate of artificial selection to account for the unequal-but-opposite counter-effect of concurrent diffusion of wild-type traits back into these utilized patches. The modeler should therefore understand that the selection rate to be entered at the start of a model-run should be an "effective" selection rate, rather than an "absolute" selection rate.
+ A note about the selection rate parameter: As described above, the proportions of wild to domestic millet are adjusted in _just_ the millet patches that were exploited in the current year. The density of individuals in _just_ those patches is also adjusted. These are the physical effects of the "artificial selection" induced by humans while exploiting those patches. At the same time, however, there is a "diffusion" of wild-type characteristics back to patches that are not being used. In the model, used patches are not exposed to this opposite, diffusive, pressure, but only are exposed to the selective pressures of human utilization. This is a simplification, because diffusion is certainly also happening even if patches are currently being used, but the effect of this diffusion is swamped out by the larger pressure exerted by artificial selection. Although the model could have been programmed to balance these pressures in utilized patches, it is programmatically simpler, to have diffusion operate only if a patch was not used. This simplification is compensated for by "tuning" the rate of artificial selection to account for the unequal-but-opposite counter-effect of concurrent diffusion of wild-type traits back into these utilized patches. The modeler should therefore understand that the selection rate to be entered at the start of a model-run should be an "effective" selection rate, rather than an "absolute" selection rate.
 
 ### References ###
 
@@ -46,13 +46,13 @@ If you use the [PIP Python installer](github.com/pypa/pip), which is my preferre
 
 * This software is released under the [GPL license](http://www.gnu.org/copyleft/gpl.html).
 * Current release number is v0.4, which is a fully functional beta.
-* Please cite as: __"Isaac I. Ullah, 2015. AgModel, version 0.4. http://dx.doi.org/10.5281/zenodo.17551"__ if you publish anything related to this software.
+* Please cite as: __"Isaac I. Ullah, 2022. AgModel, version 0.4. http://dx.doi.org/10.5281/zenodo.17551"__ if you publish anything related to this software.
 
 ### Changelog: ###
 v0.3 to v0.4
 * upgraded to Python 3
 * changes to GUI and interaction
- selection is now balanced against diffusion in utilized patches.
+* selection is now balanced against diffusion in utilized patches.
 * diffusion is now density dependent, so that it reduces as the percentage of domestic phenotype in the ecosystem increases.
 * added docstrings to classes and functions (no functional changes)
 
@@ -71,7 +71,7 @@ maxpeople 	| 500 			| The maximum human population (just to keep this in the rea
 hbirth 		| 0.04   		| The annual human per capita birth rate
 hdeath 		| 0.03  		| The annual human per capita death rate
 starvthresh | 0.8 			| The starvation threshold (percentage of the total kcal below which people are starving, and effective reproduction goes to 0)
-hkcal 		| 547500.0 		| The number of kcals per year rquired per person
+hkcal 		| 547500.0 		| The number of kcals per year required per person
 fhours 		| 4380  		| The number of foraging hours available per person
 hgratio     | 0.5           | The ratio of hunters to gatherers in the population (for allocation of time budgets)
 
@@ -79,13 +79,13 @@ hgratio     | 0.5           | The ratio of hunters to gatherers in the populatio
 
 Variable	| Default Value | Description
 ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------
-deer 		| 4000.0  		| The inital number of deer in the hunting region
+deer 		| 4000.0  		| The initial number of deer in the hunting region
 maxdeer 	| 6000.0  		| The maximum number of deer that the region can sustain (carrying capacity) without human predation
 dmigrants 	| 10  			| The number of new deer that migrate into the territory each year (keeps deer pop from being totally wiped out)
-dbirth 		| 0.065  		| The annual per capit birth rate for deer
+dbirth 		| 0.065  		| The annual per capita birth rate for deer
 ddeath 		| 0.02  		| The annual per capita natural death rate for deer
 dret 		| 158000.0   	| The return rate (number of kcals) per deer killed
-ddsrch 		| 72.0  		| The density dependant search costs for deer (hours time expended per recovery of one deer at the density "ddens")
+ddsrch 		| 72.0  		| The density dependent search costs for deer (hours time expended per recovery of one deer at the density "ddens")
 ddens 		| 1000  		| Density of deer for which search cost "dsrch" is known
 dpatch 		| 1.0  			| Number of individual deer encountered per discovery
 dhndl 		| 16.0  		| The handling costs for deer (hours handling time expended per deer once encountered)
@@ -98,12 +98,12 @@ millet 		| 500  			| The number of millet patches in the gathering region (assum
 mretw 		| 0.0507  		| The return rate (number of kcals) per wild-type millet seed
 mretd 		| 0.1014  		| The return rate (number of kcals) per domestic-type millet seed
 mprop 		| 0.98  		| The starting proportion of wild-type to domestic-type millet (1.0 = all wild, 0.0 = all domestic)
-mselect 	| 0.03  		| The coefficient of slection (e.g., the rate of change from wild-type to domestic type)
-mdiffus 	| 0.02  		| The coefficient of diffusion for millet (the rate at which selected domestic traits dissappear due to crossbreeding)
+mselect 	| 0.03  		| The coefficient of selection (e.g., the rate of change from wild-type to domestic type)
+mdiffus 	| 0.02  		| The coefficient of diffusion for millet (the rate at which selected domestic traits disappear due to crossbreeding)
 msrch 		| 1.0  			| The search costs for millet (hours expended to find one patch of millet)
 mpatch 		| 880000.0 		| Number of millet plants per patch at the start of the simulation (individuals encountered per discovery)
 maxpatch 	| 1760000.0 	| Maximum number of millet plants that can be grown per patch (a bit of a teleology, but we need a stopping point for now)
-cultiv 		| 5000 			| Number of additional millet plants to added to a patch each year due to proto cultivation of the patch. The patch reduces by the same number if not exploited.
+cultiv 		| 5000 			| Number of additional millet plants to added to a patch each year due to proto-cultivation of the patch. The patch reduces by the same number if not exploited.
 mhndl 		| 0.0001  		| The handling costs for millet (hours handling time expended per seed once encountered)
 
 <center>**Simulation Controls**</center>
