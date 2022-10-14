@@ -48,13 +48,13 @@ If you use the [PIP Python installer](github.com/pypa/pip), which is my preferre
 * Current release number is v0.4, which is a fully functional beta.
 * Please cite as: __"Isaac I. Ullah, 2015. AgModel, version 0.4. http://dx.doi.org/10.5281/zenodo.17551"__ if you publish anything related to this software.
 
-### Changelog: ###
-v0.3 to v0.4
+Changelog:
+* v0.3 to v0.4
 * upgraded to Python 3
 * changes to GUI and interaction
  selection is now balanced against diffusion in utilized patches.
-* diffusion is now density dependent, so that it reduces as the percentage of domestic phenotype in the ecosystem increases.
-* added docstrings to classes and functions (no functional changes)
+*    #* diffusion is now density dependent, so that it reduces as the percentage of domestic phenotype in the ecosystem increases.
+    # added docstrings to classes and functions (no functional changes)
 
 ### Publications and Presentations ###
 

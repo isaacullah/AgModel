@@ -64,7 +64,7 @@ def exec_commands(cmds):
     while True:
         while cmds and len(processes) < max_task:
             task = cmds.pop()
-            print list2cmdline(task)
+            print(list2cmdline(task))
             processes.append(Popen(task))
 
         for p in processes:

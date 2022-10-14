@@ -14,6 +14,7 @@
 
 #Changelog:
     # v0.3 to v0.4
+    # upgrade to Python 3
     # selection is now balanced against diffusion in utilized patches.
     # diffusion is now density dependent, so that it reduces as the percentage of domestic phenotype in the ecosystem increases.
     # added docstrings to classes and functions (no functional changes)
@@ -111,8 +112,8 @@ if __name__ == "__main__":
     for patch in range(int(millet)): # set up a data container for our millet patches. They will all start out the same.
         milletpatches.append([mpatch, mprop])
     millet_df = pd.DataFrame(milletpatches, columns=['mpatch','mprop']) # turn this data container into a pandas dataframe for more efficient math and indexing
-    patchdens_ts = pd.DataFrame(index=range(1,int(millet+1)), columns=range(years+1)) # set up a blank pandas dataframe to catch patch density timeseries stats for possible output
-    patchprop_ts = pd.DataFrame(index=range(1,int(millet+1)), columns=range(years+1)) # set up a blank pandas dataframe to catch patch domestic proportion timeseries stats for possible output
+    patchdens_ts = pd.DataFrame(index=list(range(1,int(millet+1))), columns=list(range(years+1))) # set up a blank pandas dataframe to catch patch density timeseries stats for possible output
+    patchprop_ts = pd.DataFrame(index=list(range(1,int(millet+1))), columns=list(range(years+1))) # set up a blank pandas dataframe to catch patch domestic proportion timeseries stats for possible output
     patchdens_ts[0] = millet_df.mpatch # update with year 0 data
     patchprop_ts[0] = millet_df.mprop # update with year 0 data
     # set up some individual data containers for the output stats and plots
@@ -127,7 +128,7 @@ if __name__ == "__main__":
     mdens = [mpatch/1000]
     ####### The simulation starts here.
     for year in range(1,years+1):        #this is the outer loop, that does things at an annual resolution, counting the years down for the simulation
-        if texton == True: print "Year: %s" % year
+        if texton == True: print("Year: %s" % year)
         kcalneed = people * hkcal        # find the number of kcals needed by the band this year
         htimebudget = people * fhours * hgratio        # find the hunting time budget for the band this year
         gtimebudget = people * fhours * (1/hgratio)    # find the gathering time budget for the band this year ##NOTE- excess hunting time will be used for gathering
@@ -137,7 +138,7 @@ if __name__ == "__main__":
         eatdeer = 0        #set up dat container to count how many deer we ate this year
         while kcalneed > 0:        #this is the inner loop, doing foraging within the year, until kcal need is satisfied
             if deer_now <= 0 and millet_now <= 0:
-                if texton == True: print "Ate everything!!!"
+                if texton == True: print("Ate everything!!!")
                 break
             #first calculate info about the current state of millet
             mprop_now = np.mean(millet_df.mprop[0:millet_now]) #Note that we are taking the mean proportion acoss all remaining millet patches in the data array.
@@ -157,11 +158,11 @@ if __name__ == "__main__":
             if deerscore >= milletscore:        #check to see whether the band should eat deer or millet at this moment
                 ## eating deer, so update data containers accordingly
                 if htimebudget <= 0:
-                    if texton == True: print "Ran out of hunting time this year, hopefully there is gathering time left"
+                    if texton == True: print("Ran out of hunting time this year, hopefully there is gathering time left")
                     deerscore = 0
                     pass
                 if deer_now <= 0: #if they killed all the deer, then go to millet if possible
-                    if texton == True: print "Killed all the deer available this year, will try to make up the remainder of the diet with millet"
+                    if texton == True: print("Killed all the deer available this year, will try to make up the remainder of the diet with millet")
                     deerscore = 0.
                     pass
                 else:
@@ -171,22 +172,22 @@ if __name__ == "__main__":
                     deer_now = deer_now - dpatch
             else: ## eating millet, so update data containers accordingly
                 if gtimebudget <= 0:
-                    if texton == True: print "Ran out of gathering time this year, hopefully there is hunting time left"
+                    if texton == True: print("Ran out of gathering time this year, hopefully there is hunting time left")
                     milletscore = 0
                     pass
                 elif gtimebudget <= 0 and htimebudget > 0:
-                    if texton == True: print "Using remaining hunting time to gather millet"
+                    if texton == True: print("Using remaining hunting time to gather millet")
                     kcalneed = kcalneed - (mret * mpatch_now)
                     htimebudget = htimebudget - msrch - (mhndl * mpatch_now)
                     eatmillet = eatmillet + 1
                     millet_now = millet_now - 1
                 elif gtimebudget <=0 and htimebudget <= 0:
-                    if texton == True: print "Not enough hunting time left to use for gathering"
+                    if texton == True: print("Not enough hunting time left to use for gathering")
                     milletscore = 0
                     pass
                 else: pass
                 if millet_now <= 0: #if millet is all gone, then go back to deer
-                    if texton == True: print "Harvested all available millet this year, will try to make up the remainder of the diet with deer."
+                    if texton == True: print("Harvested all available millet this year, will try to make up the remainder of the diet with deer.")
                     milletscore = 0
                     pass
                 else:
@@ -195,17 +196,17 @@ if __name__ == "__main__":
                     eatmillet = eatmillet + 1
                     millet_now = millet_now - 1
             if htimebudget <= 0 and gtimebudget <= 0:        #check if they've run out of foraging time, and stop the loop if necessary.
-                if texton == True: print "Ran out of all foraging time for this year before gathering enough food."
+                if texton == True: print("Ran out of all foraging time for this year before gathering enough food.")
                 break
             if deer <= 0 and millet <= 0:    #check if they've run out of food, and stop the loop if necessary.
-                if texton == True: print "Ate all the deer and all the millet this year before gathering enough food."
+                if texton == True: print("Ate all the deer and all the millet this year before gathering enough food.")
                 break
             if deerscore <= 0 and milletscore <= 0:    #check if they've run out of food, and stop the loop if necessary.
-                if texton == True:print "Ate all the deer and all the millet this year before gathering enough food."
+                if texton == True:print("Ate all the deer and all the millet this year before gathering enough food.")
                 break
         ####### Now that the band has foraged for a year, update human, deer, and millet populations, and implement selection
         if (people * hkcal) - kcalneed <= (people * hkcal * starvthresh):     #Check if they starved this year and just die deaths if so
-            if texton == True: print "Starved a bit this year, no births will occur."
+            if texton == True: print("Starved a bit this year, no births will occur.")
             people = people - deathdealer(hdeath, people)
         else: #otherwise, balance births and deaths, and adjust the population accordingly
             people = people + babymaker(hbirth, people) - deathdealer(hdeath, people)
