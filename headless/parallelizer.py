@@ -7,13 +7,13 @@ from itertools import product
 ## EDIT THESE VALUES -- They are the parameters to sweep through. Change names and values to fit the CLI command in cmdlist
 
 v1list = (0.030,0.031,0.032,0.033) # List of values of variable 1 to sweep through
-v1name = "hbirths" # Name of variable 1, for output files
+v1name = "HumanBirthRate" # Name of variable 1, for output files
 
 v2list = (0.01,0.02,0.03,0.04) # List of values of variable 2 to sweep through
-v2name = "mselect" #Name of variable 2, for output files
+v2name = "CerealSelectionRate" #Name of variable 2, for output files
 
 v3list = (1000,2000,3000,4000) # List of values of variable 2 to sweep through
-v3name = "cultiv" #Name of variable 3, for output files
+v3name = "CerealCultivationDensity" #Name of variable 3, for output files
 
 repeats = 10 # Number of times to repeat each experiment
 
@@ -91,7 +91,7 @@ if __name__ == "__main__":
         for x in range(repeats):
 
             ###EDIT THIS LINE
-            cmdlist = ['python', 'Agmodel-0.4_headless.py', '--hbirth', '%s' % varlist[i][0], '--mselect', '%s' % varlist[i][1], '--cultiv', '%s' % varlist[i][2], '--label', '%s.%s' % (i + 1, str(x).zfill(len(str(repeats)))) ] # This is the main CLI command that will be constructed for each experiment. It must be in list form, with each CLI argument as an individual list element. Edit to match your model's CLI interface. NOTE that varible "varlist[i][1]" will be replaced by a numerical value from your list of values for the first variable, etc. Ensure that these variables appear at the proper place in the CLI for your model.
+            cmdlist = ['python3', 'AgModel_headless.py', '--HumanBirthRate', '%s' % varlist[i][0], '--CerealSelectionRate', '%s' % varlist[i][1], '--CerealCultivationDensity', '%s' % varlist[i][2], '--label', '%s.%s' % (i + 1, str(x).zfill(len(str(repeats)))) ] # This is the main CLI command that will be constructed for each experiment. It must be in list form, with each CLI argument as an individual list element. Edit to match your model's CLI interface. NOTE that varible "varlist[i][1]" will be replaced by a numerical value from your list of values for the first variable, etc. Ensure that these variables appear at the proper place in the CLI for your model.
             ##STOP EDITING
 
             commands.append(cmdlist) # creating a CLI command for each experiment and repetition. and appending the current CLI command to the list
