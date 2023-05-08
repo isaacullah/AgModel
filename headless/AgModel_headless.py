@@ -50,8 +50,8 @@ parser.add_argument('--label', metavar='Z.ZZ', nargs='?', const='1.01', default=
 ## EDIT THESE VARIABLES AS YOU SEE FIT
 # HUMAN VARIABLES
 People = 50         ## Enter the initial number of people in the band
-MaximumPeople = 200    ## Enter the maximum human population (just to keep this in the realm of possibility, and to help set the y axis on the plot)
-##HumanBirthRate = 0.035         ## Enter the annual human per capita birth rate
+MaximumPeople = 3000    ## Enter the maximum human population (just to keep this in the realm of possibility, and to help set the y axis on the plot)
+HumanBirthRate = 0.032         ## Enter the annual human per capita birth rate
 HumanDeathRate = 0.03        ## Enter the annual human per capita death rate
 HumanBirthDeathFilter = 0.005 ## Width of the Gaussian randomizing filter for human birth and death rates
 StarvationThreshold = 0.8    ## Enter the starvation threshold (percentage of the total kcal below which people are starving, and effective reproduction goes to 0)
@@ -61,30 +61,30 @@ ForagingHours = 4380       ## Enter the number of foraging hours available per p
                                 # 4380 for 12hrs/day
 ForagingUncertainty = 0.1        ## Width of the Gaussian randomizing filter that is applied to foraging payoff numbers in the forager's Diet Breadth decision algorithm
 # PREY VARIABLES
-Prey = 1000         ## Enter the inital number of Prey in the hunting region
-MaxPrey = 3000     ## Enter the maximum number of Prey that the region can sustain (carrying capacity) without human predation
-MaxPreyMigrants = 100        ## Enter the maximum number of new Prey that migrate into the territory each year (keeps Prey pop from being totally wiped out)
-PreyBirthRate = 0.06        ## Enter the annual per capit birth rate for Prey
-PreyDeathRate = 0.03        ## Enter the annual per capita natural death rate for Prey
+Prey = 200         ## Enter the initial number of Prey in the hunting region
+MaxPrey = 500     ## Enter the maximum number of Prey that the region can sustain (carrying capacity) without human predation
+MaxPreyMigrants = 0        ## Enter the maximum number of new Prey that migrate into the territory each year (keeps Prey pop from being totally wiped out)
+PreyBirthRate = 0.06        ## Enter the annual per capita birth rate for Prey
+PreyDeathRate = 0.04        ## Enter the annual per capita natural death rate for Prey
 PreyBirthDeathFilter = 0.005 ## Width of the Gaussian randomizing filter for prey birth and death rates
-PreyReturns = 150000.0        ## Enter the return rate (number of kcals) per Prey killed
+PreyReturns = 200000.0        ## Enter the return rate (number of kcals) per Prey killed
 PreySearchCost = 72.0        ## Enter the density dependent search costs for Prey (hours time expended per recovery of one Prey at the density "PreyDensity")
 PreyDensity = 1000        ## Density of Prey for which search cost prey search costs are known
-MaxPreyEncountered = 10.0        ## Maximum number of individual Prey encountered per discovery
+MaxPreyEncountered = 4.0        ## Maximum number of individual Prey encountered per discovery
 MinPreyEncountered = 1.0        ## Minimum number of individual Prey encountered per discovery
 PreyHandlingCost = 16.0        ## Enter the handling costs for Prey (hours handling time expended once encountered)
 # CEREAL VARIABLES
-Cereal = 200        ## Enter the number of Cereal patches in the gathering region (assume a patch is ~1ha)
+Cereal = 100        ## Enter the number of Cereal patches in the gathering region (assume a patch is ~1ha)
 WildCerealReturns = 0.05        ## Enter the return rate (number of kcals) per wild-type Cereal seed
 DomesticatedCerealReturns = 0.1        ## Enter the return rate (number of kcals) per domestic-type Cereal seed
 WildToDomesticatedProportion = 0.98        ## Enter the starting proportion of wild-type to domestic-type Cereal (1.0 = all wild, 0.0 = all domestic)
-##CerealSelectionRate = 0.03        ## Enter the coefficient of slection (e.g., the rate of change from wild-type to domestic type)
-CerealDiffusionRate = 0.02        ## Enter the coefficient of diffusion for Cereal (the rate at which selected domestic traits dissappear due to crossbreeding)
+CerealSelectionRate = 0.03        ## Enter the coefficient of selection (e.g., the rate of change from wild-type to domestic type)
+CerealDiffusionRate = 0.02        ## Enter the coefficient of diffusion for Cereal (the rate at which selected domestic traits disappear due to crossbreeding)
 SelectionDiffusionFilter = 0.001   ## Enter the width of the Gaussian filter applied to selection and diffusion rates.
 CerealSearchCosts = 1.0        ## Enter the search costs for Cereal (hours expended to find one patch of Cereal)
 CerealDensity = 10000000    ## Number of Cereal kernels that are harvested per patch at the start of the simulation
 MaxCerealDensity = 100000000 ## Maximum number of Cereal kernels that can be harvest per patch (a bit of a teleology, but we need a stopping point)
-##CerealCultivationDensity = 1000000 ## Number of additional Cereal kernels that can be harvested from a patch each year due to proto-cultivation of the patch (up to maximum density). The patch yield reduces by the same number if not exploited (down to minimum)
+CerealCultivationDensity = 1000000 ## Number of additional Cereal kernels that can be harvested from a patch each year due to proto-cultivation of the patch (up to maximum density). The patch yield reduces by the same number if not exploited (down to minimum)
 WildCerealHandlingCost = 0.0001        ## Enter the handling costs for wild Cereal (hours handling time expended per seed once encountered)
 DomesticatedCerealHandlingCost = 0.00001        ## Enter the handling costs for domestic Cereal (hours handling time expended per seed once encountered)
 # SIMULATION CONTROLS
@@ -135,7 +135,6 @@ if __name__ == "__main__":
     ProportionDomesticated = [1 - WildToDomesticatedProportion]
     AverageCerealDensity = [CerealDensity/1000]
     ####### The simulation starts here.
-    t0 = time.time() #set up a timer to see how fast we are
     for year in range(1,Years+1):        #this is the outer loop, that does things at an annual resolution, counting the years down for the simulation
         kcalneed = People * HumanKcal        # find the number of kcals needed by the band this year
         timebudget = People * ForagingHours       # find the time budget for the band this year
@@ -147,8 +146,8 @@ if __name__ == "__main__":
             if Prey_now <= 0 and Cereal_now <= 0:
                 break
             #first calculate info about the current state of Cereal
-            WildToDomesticatedProportion_now = np.mean(Cereal_df.WildToDomesticatedProportion[0:Cereal_now]) #Note that we are taking the mean proportion acoss all remaining Cereal patches in the data array.
-            CerealDensity_now = np.mean(Cereal_df.CerealDensity[0:Cereal_now]) #Note that we are taking the mean number of individuals perpatch across all remaining patches in the Cereal data array. Note that we are reading off of the right end of the array list.
+            WildToDomesticatedProportion_now = np.mean(Cereal_df.WildToDomesticatedProportion[0:Cereal_now]) #Note that we are taking the mean proportion across all remaining Cereal patches in the data array.
+            CerealDensity_now = np.mean(Cereal_df.CerealDensity[0:Cereal_now]) #Note that we are taking the mean number of individuals per patch across all remaining patches in the Cereal data array. Note that we are reading off of the right end of the array list.
             CerealReturns = (WildCerealReturns * WildToDomesticatedProportion_now) + (DomesticatedCerealReturns * (1 - WildToDomesticatedProportion_now))        #determine the actual kcal return for Cereal, based on the proportion of wild to domesticated.
             CombinedCerealHandlingCost = (WildCerealHandlingCost * WildToDomesticatedProportion_now) + (DomesticatedCerealHandlingCost * (1 - WildToDomesticatedProportion_now))    #determine the actual handling time for Cereal, based on the proportion of wild to domesticated.
             if Prey_now <= 0:

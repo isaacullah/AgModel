@@ -12,6 +12,9 @@
     #   Introduce SeedToYieldRatio, and use it to replace the variables for initial and maximum Kernel yields per patch to be initial and maximum SeedToYieldRatio
     #   Tie the SelectionCoefficient to also increase the SeedToYieldRatio over time.
     #   Add a WildSeedingRate and CultivationSeedingRate (number of kernels/ha) and remove CerealCultivationDensity
+    #   Allow for surplus and storage
+    #   Allow birth rate and death rate to be positively affected by surplus
+    #   Increase diversity of alternative food resources (more than just one prey or plant resource)
 
     # v0.5 to v0.6
     # Removed HunterGathererRatio (allows this to be an emergent property)
@@ -50,8 +53,8 @@ class Settings(eg.EgStore):
         #-------------------------------------------------'''
         # HUMAN VARIABLES
         self.People = 50         ## Enter the initial number of people in the band
-        self.MaximumPeople = 200    ## Enter the maximum human population (just to keep this in the realm of possibility, and to help set the y axis on the plot)
-        self.HumanBirthRate = 0.035         ## Enter the annual human per capita birth rate
+        self.MaximumPeople = 3000    ## Enter the maximum human population (just to keep this in the realm of possibility, and to help set the y axis on the plot)
+        self.HumanBirthRate = 0.032         ## Enter the annual human per capita birth rate
         self.HumanDeathRate = 0.03        ## Enter the annual human per capita death rate
         self.HumanBirthDeathFilter = 0.005 ## Width of the Gaussian randomizing filter for human birth and death rates
         self.StarvationThreshold = 0.8    ## Enter the starvation threshold (percentage of the total kcal below which people are starving, and effective reproduction goes to 0)
@@ -61,25 +64,25 @@ class Settings(eg.EgStore):
                                         # 4380 for 12hrs/day
         self.ForagingUncertainty = 0.1        ## Width of the Gaussian randomizing filter that is applied to foraging payoff numbers in the forager's Diet Breadth decision algorithm
         # PREY VARIABLES
-        self.Prey = 1000         ## Enter the inital number of Prey in the hunting region
-        self.MaxPrey = 3000     ## Enter the maximum number of Prey that the region can sustain (carrying capacity) without human predation
-        self.MaxPreyMigrants = 100        ## Enter the maximum number of new Prey that migrate into the territory each year (keeps Prey pop from being totally wiped out)
-        self.PreyBirthRate = 0.06        ## Enter the annual per capit birth rate for Prey
-        self.PreyDeathRate = 0.03        ## Enter the annual per capita natural death rate for Prey
+        self.Prey = 200         ## Enter the initial number of Prey in the hunting region
+        self.MaxPrey = 500     ## Enter the maximum number of Prey that the region can sustain (carrying capacity) without human predation
+        self.MaxPreyMigrants = 0        ## Enter the maximum number of new Prey that migrate into the territory each year (keeps Prey pop from being totally wiped out)
+        self.PreyBirthRate = 0.06        ## Enter the annual per capita birth rate for Prey
+        self.PreyDeathRate = 0.04        ## Enter the annual per capita natural death rate for Prey
         self.PreyBirthDeathFilter = 0.005 ## Width of the Gaussian randomizing filter for prey birth and death rates
-        self.PreyReturns = 150000.0        ## Enter the return rate (number of kcals) per Prey killed
+        self.PreyReturns = 200000.0        ## Enter the return rate (number of kcals) per Prey killed
         self.PreySearchCost = 72.0        ## Enter the density dependent search costs for Prey (hours time expended per recovery of one Prey at the density "PreyDensity")
         self.PreyDensity = 1000        ## Density of Prey for which search cost prey search costs are known
-        self.MaxPreyEncountered = 10.0        ## Maximum number of individual Prey encountered per discovery
+        self.MaxPreyEncountered = 4.0        ## Maximum number of individual Prey encountered per discovery
         self.MinPreyEncountered = 1.0        ## Minimum number of individual Prey encountered per discovery
         self.PreyHandlingCost = 16.0        ## Enter the handling costs for Prey (hours handling time expended once encountered)
         # CEREAL VARIABLES
-        self.Cereal = 200        ## Enter the number of Cereal patches in the gathering region (assume a patch is ~1ha)
+        self.Cereal = 100        ## Enter the number of Cereal patches in the gathering region (assume a patch is ~1ha)
         self.WildCerealReturns = 0.05        ## Enter the return rate (number of kcals) per wild-type Cereal seed
         self.DomesticatedCerealReturns = 0.1        ## Enter the return rate (number of kcals) per domestic-type Cereal seed
         self.WildToDomesticatedProportion = 0.98        ## Enter the starting proportion of wild-type to domestic-type Cereal (1.0 = all wild, 0.0 = all domestic)
-        self.CerealSelectionRate = 0.03        ## Enter the coefficient of slection (e.g., the rate of change from wild-type to domestic type)
-        self.CerealDiffusionRate = 0.02        ## Enter the coefficient of diffusion for Cereal (the rate at which selected domestic traits dissappear due to crossbreeding)
+        self.CerealSelectionRate = 0.03        ## Enter the coefficient of selection (e.g., the rate of change from wild-type to domestic type)
+        self.CerealDiffusionRate = 0.02        ## Enter the coefficient of diffusion for Cereal (the rate at which selected domestic traits disappear due to crossbreeding)
         self.SelectionDiffusionFilter = 0.001   ## Enter the width of the Gaussian filter applied to selection and diffusion rates.
         self.CerealSearchCosts = 1.0        ## Enter the search costs for Cereal (hours expended to find one patch of Cereal)
         self.CerealDensity = 10000000    ## Number of Cereal kernels that are harvested per patch at the start of the simulation
@@ -386,8 +389,8 @@ if __name__ == "__main__":
                 if RealTimeText: print("ate everything!!!")
                 break
             #first calculate info about the current state of Cereal
-            WildToDomesticatedProportion_now = np.mean(Cereal_df.WildToDomesticatedProportion[0:Cereal_now]) #Note that we are taking the mean proportion acoss all remaining Cereal patches in the data array.
-            CerealDensity_now = np.mean(Cereal_df.CerealDensity[0:Cereal_now]) #Note that we are taking the mean number of individuals perpatch across all remaining patches in the Cereal data array. Note that we are reading off of the right end of the array list.
+            WildToDomesticatedProportion_now = np.mean(Cereal_df.WildToDomesticatedProportion[0:Cereal_now]) #Note that we are taking the mean proportion across all remaining Cereal patches in the data array.
+            CerealDensity_now = np.mean(Cereal_df.CerealDensity[0:Cereal_now]) #Note that we are taking the mean number of individuals per patch across all remaining patches in the Cereal data array. Note that we are reading off of the right end of the array list.
             CerealReturns = (WildCerealReturns * WildToDomesticatedProportion_now) + (DomesticatedCerealReturns * (1 - WildToDomesticatedProportion_now))        #determine the actual kcal return for Cereal, based on the proportion of wild to domesticated.
             CombinedCerealHandlingCost = (WildCerealHandlingCost * WildToDomesticatedProportion_now) + (DomesticatedCerealHandlingCost * (1 - WildToDomesticatedProportion_now))    #determine the actual handling time for Cereal, based on the proportion of wild to domesticated.
             if Prey_now <= 0:
@@ -403,7 +406,6 @@ if __name__ == "__main__":
                 Cerealscore = 0
             else:
                 Cerealscore = (CerealReturns * CerealDensity_now ) / (CerealSearchCosts + (CombinedCerealHandlingCost *  CerealDensity_now))        #find the current return rate (kcal/hr for Cereal.
-            #if RealTimeText: print Preyscore, Cerealscore, kcalneed
             if np.random.normal(Preyscore, Preyscore * ForagingUncertainty) > np.random.normal(Cerealscore, Cerealscore * ForagingUncertainty): # Hunting prey is more profitable
                 if timebudget <= 0:
                     if RealTimeText: print("Ran out of labor time this year")
