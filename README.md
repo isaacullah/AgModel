@@ -2,7 +2,7 @@
  
 ## An _Agent-Based Model_ of the forager-farmer transition ##
 
-[![DOI](https://zenodo.org/badge/12885/isaacullah/AgModel.svg)](http://dx.doi.org/10.5281/zenodo.17551)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7909271.svg)](https://doi.org/10.5281/zenodo.7909271)
 
 AgModel is an agent-based model of the forager-farmer transition. The model consists of a single software agent that, conceptually, can be thought of as a single hunter-gather community (i.e., a co-residential group that shares in subsistence activities and decision making). The agent has several characteristics, including a population of human foragers, intrinsic birth and death rates, an annual total energy need, and an available amount of foraging labor. The model assumes a central-place foraging strategy in a fixed territory for a two-resource economy: cereal grains and prey animals. The territory has a fixed number of  patches, and a starting number of prey. While the model is not spatially explicit, it does assume some spatiality of resources by including search times.
 
