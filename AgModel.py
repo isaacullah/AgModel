@@ -564,7 +564,7 @@ if __name__ == "__main__":
         if pf == '':
             pass
         else:
-            plt.savefig(pf, format = pf.split('.')[1], edgecolor = "black")
+            plt.savefig(pf, format = pf.split('.')[-1], edgecolor = "black")
     else:
         pass
     sys.exit(0)
