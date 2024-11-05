@@ -48,6 +48,10 @@ Proposed Changes for next version
 * Allow birth rate and death rate to be positively affected by surplus
 * Increase diversity of alternative food resources (more than just one prey or plant resource)
 
+v0.6  to v0.7
+* Minor bugfix
+* Added ODD Protocol
+
 v0.5 to v0.6
 * Removed HunterGathererRatio (allows this to be an emergent property)
 * Added Gaussian filter to diet breadth logic
